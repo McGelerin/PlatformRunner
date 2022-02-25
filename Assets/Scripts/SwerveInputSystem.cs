@@ -9,6 +9,9 @@ public class SwerveInputSystem : MonoBehaviour
     private float _moveFactorX;
     public float MoveFactorX => _moveFactorX;
 
+    [Header("User Variables")]
+    public bool isUserHoldScreen;
+
     //private void Update()
     //{
     //    if (Input.GetMouseButtonDown(0))
@@ -30,6 +33,7 @@ public class SwerveInputSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            isUserHoldScreen = true;
             _lastFrameFingerPositionX = Input.mousePosition.x;
         }
         else if (Input.GetMouseButton(0))
@@ -39,6 +43,7 @@ public class SwerveInputSystem : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            isUserHoldScreen = false;
             _moveFactorX = 0f;
         }
     }

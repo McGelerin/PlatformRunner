@@ -1,23 +1,28 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance; //Singleton(Tek Nesne) Dýþardan eriþim için
+
     [Header("Player Component")]
     private Rigidbody playerfizik;
     private Animator anim;
-
-    [Header("Player Variables")]
-    public float hareket_hizi;
-    public float rotatorKuvvet;
 
     [Header("Needed Scripts")]
     SwerveMovement swerveMoveSC;
     SwerveInputSystem swerveInputSC;
 
+    [Header("Player Variables")]
+    public float movementSpeed;
+    //public float rotatorKuvvet;
+    
+
     private void Awake()
     {
+        Instance = this; //Singleton(Tek Nesne) Dýþardan eriþim için
         swerveMoveSC = FindObjectOfType<SwerveMovement>();
         swerveInputSC = FindObjectOfType<SwerveInputSystem>();
     }
@@ -32,13 +37,13 @@ public class playerController : MonoBehaviour
     {
         swerveInputSC.ChechTouches();
 
-        if (Input.GetMouseButton(0)) // mousebuttondown 1 kere calýþýr
+        if (swerveInputSC.isUserHoldScreen)//(Input.GetMouseButton(0)) // mousebuttondown 1 kere calýþýr
         {
             anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
             //anim.SetBool("move", true);
             hareket();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (!swerveInputSC.isUserHoldScreen)//(Input.GetMouseButtonUp(0))
         {
             anim.ResetTrigger("move2");
         }        
@@ -56,7 +61,7 @@ public class playerController : MonoBehaviour
 
     private void hareket()
     {
-        playerfizik.velocity = new Vector3(playerfizik.velocity.x, playerfizik.velocity.y, hareket_hizi);
+        playerfizik.velocity = new Vector3(playerfizik.velocity.x, playerfizik.velocity.y, movementSpeed);
         //anim.SetBool("move", true);
         //playerfizik.AddForce(Vector3.forward * hareket_hizi * Time.deltaTime);
     }
@@ -90,6 +95,6 @@ public class playerController : MonoBehaviour
 
     private void death()
     {
-        transform.position = new Vector3(0f, 0f, 0f); 
+        transform.DOMove( Vector3.zero, .3f );//transform.position = new Vector3(0f, 0f, 0f); 
     }
 }
