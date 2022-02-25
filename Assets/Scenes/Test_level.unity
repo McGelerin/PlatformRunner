@@ -429,16 +429,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 919132149408789346}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.79
+  m_Radius: 0.02
   m_Speed: 0.5
   m_Acceleration: 0.3
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 0.2
+  m_StoppingDistance: 0.8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.3
+  m_Height: 0.12
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81846c6c42eddc043bce40098a961baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swerveSpeed: 0.5
+  swerveSpeed: 2
   maxSwerveAmount: 1
   playerfizik: {fileID: 634774715}
 --- !u!114 &487758755
@@ -659,11 +659,11 @@ NavMeshObstacle:
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.045, y: 0.128, z: 0.047000002}
-  m_MoveThreshold: 0.71
+  m_MoveThreshold: 0.09
   m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.97
+  m_TimeToStationary: 0.03
 --- !u!4 &693894832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3981404598586925787, guid: 30f9b3664a057e145ae0e85fe3327994, type: 3}

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance; //Singleton(Tek Nesne) Dýþardan eriþim için
 
     [Header("Player Component")]
-    private Rigidbody playerfizik;
+    private Rigidbody playerRB;
     private Animator anim;
 
     [Header("Needed Scripts")]
@@ -25,13 +25,14 @@ public class PlayerController : MonoBehaviour
         Instance = this; //Singleton(Tek Nesne) Dýþardan eriþim için
         swerveMoveSC = FindObjectOfType<SwerveMovement>();
         swerveInputSC = FindObjectOfType<SwerveInputSystem>();
-    }
-
-    void Start()
-    {
-        playerfizik = GetComponent<Rigidbody>();
+        playerRB = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
+
+    //void Start()
+    //{
+
+    //}
 
     private void Update()
     {
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void hareket()
     {
-        playerfizik.velocity = new Vector3(playerfizik.velocity.x, playerfizik.velocity.y, movementSpeed);
+        playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, movementSpeed);
         //anim.SetBool("move", true);
         //playerfizik.AddForce(Vector3.forward * hareket_hizi * Time.deltaTime);
     }
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
     //}
 
 
-    private void death()
+    public void death()
     {
         transform.DOMove( Vector3.zero, .3f );//transform.position = new Vector3(0f, 0f, 0f); 
     }
