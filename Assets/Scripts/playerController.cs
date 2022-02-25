@@ -12,23 +12,26 @@ public class playerController : MonoBehaviour
     public float hareket_hizi;
     public float rotatorKuvvet;
 
-    [Header("Needed Game Objects")]
-    [Tooltip("Bu objeyi player forlatacak")]
-    [SerializeField] GameObject obj;
-    [Tooltip("Collectable Listesi")]
-    [SerializeField] List<Transform> asd = new List<Transform>();
+    [Header("Needed Scripts")]
+    SwerveMovement swerveMoveSC;
+    SwerveInputSystem swerveInputSC;
 
+    private void Awake()
+    {
+        swerveMoveSC = FindObjectOfType<SwerveMovement>();
+        swerveInputSC = FindObjectOfType<SwerveInputSystem>();
+    }
 
-    // Start is called before the first frame update
     void Start()
     {
         playerfizik = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
+        swerveInputSC.ChechTouches();
+
         if (Input.GetMouseButton(0)) // mousebuttondown 1 kere calýþýr
         {
             anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
@@ -44,6 +47,11 @@ public class playerController : MonoBehaviour
         //else { anim.SetBool("move", false); }
         //hareket();
 
+    }
+
+    private void FixedUpdate()
+    {
+        swerveMoveSC.SwerveMove();
     }
 
     private void hareket()
