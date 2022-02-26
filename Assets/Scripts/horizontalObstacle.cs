@@ -7,7 +7,7 @@ public class horizontalObstacle : MonoBehaviour
 {
     private Rigidbody obstacleRB;
     public float movementSpeed;
-    private bool rmove = true;
+//    private bool rmove = true;
 
     void Start()
     {

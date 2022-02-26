@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class aiController: MonoBehaviour
 {
+    [Header ("Components Access")]
     private Animator anim;
     NavMeshAgent agent;
     public GameObject hedef;
@@ -25,7 +26,6 @@ public class aiController: MonoBehaviour
     {
         agent.SetDestination(hedef.transform.position);
         aiAnim();
-        // OnTriggerEnter()
 
     }
 
@@ -40,10 +40,8 @@ public class aiController: MonoBehaviour
 
     private void aiAnim()
     {
-        Debug.Log("Ainim girdi");
         if(agent.velocity.magnitude <= .2f)
         {
-            Debug.Log("Ainim girdi");
             anim.SetBool("move", false);
         }
         else anim.SetBool("move", true);
@@ -52,6 +50,6 @@ public class aiController: MonoBehaviour
 
     public void death()
     {
-        transform.DOMove(Vector3.zero, .3f);//transform.position = new Vector3(0f, 0f, 0f); 
+        transform.DOMove(Vector3.zero, .1f);//transform.position = new Vector3(0f, 0f, 0f); 
     }
 }

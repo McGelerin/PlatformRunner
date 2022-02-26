@@ -29,30 +29,23 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    //void Start()
-    //{
-
-    //}
 
     private void Update()
     {
+
         swerveInputSC.ChechTouches();
 
         if (swerveInputSC.isUserHoldScreen)//(Input.GetMouseButton(0)) // mousebuttondown 1 kere calýþýr
         {
-            anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
-            //anim.SetBool("move", true);
+            //anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
+            anim.SetBool("move", true);
             hareket();
         }
-        else if (!swerveInputSC.isUserHoldScreen)//(Input.GetMouseButtonUp(0))
+        else //if(!swerveInputSC.isUserHoldScreen) //(Input.GetMouseButtonUp(0))
         {
-            anim.ResetTrigger("move2");
+            anim.SetBool("move", false);
+            //anim.ResetTrigger("move2");
         }        
-        
-
-        //else { anim.SetBool("move", false); }
-        //hareket();
-
     }
 
     private void FixedUpdate()
@@ -73,29 +66,15 @@ public class PlayerController : MonoBehaviour
         {
             death();
         }
+        if (col.gameObject.tag == "Finish")
+        {
+            death();
+        }
     }
-
-
-    // --------------------GEREK KALMADI-------------- RIG ÝLE YAPILDI
-
-    //public void OnTriggerStay(Collider col)
-    //{
-    //    if (col.gameObject.tag == "lRotate")
-    //    {
-    //        Debug.Log("rotate girdi");
-    //        playerfizik.velocity = new Vector3( -rotatorKuvvet , playerfizik.velocity.y, playerfizik.velocity.z);
-    //    }
-
-    //    if (col.gameObject.tag == "rRotate")
-    //    {
-    //        Debug.Log("rotate girdi");
-    //        playerfizik.velocity = new Vector3( rotatorKuvvet, playerfizik.velocity.y, playerfizik.velocity.z);
-    //    }
-    //}
 
 
     public void death()
     {
-        transform.DOMove( Vector3.zero, .3f );//transform.position = new Vector3(0f, 0f, 0f); 
+        transform.DOMove( Vector3.zero, .1f );//transform.position = new Vector3(0f, 0f, 0f); 
     }
 }
