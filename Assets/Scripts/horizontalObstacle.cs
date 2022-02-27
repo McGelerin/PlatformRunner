@@ -5,7 +5,10 @@ using DG.Tweening;
 
 public class horizontalObstacle : MonoBehaviour
 {
+    [Header ("RB Acces")]
     private Rigidbody obstacleRB;
+
+    [Header ("Moment Speed")]
     public float movementSpeed;
 //    private bool rmove = true;
 

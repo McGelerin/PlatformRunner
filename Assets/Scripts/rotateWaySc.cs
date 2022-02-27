@@ -17,7 +17,7 @@ public class rotateWaySc : MonoBehaviour
     private void Awake()
     {
         platformRB = GetComponent<Rigidbody>();
-        rotateWay selectedRotate = rotateWayCache;
+        rotateWay selectedRotate = rotateWayCache; //Kodu 3 sefer yazacaðima tek seferde halletim
 
         if (selectedRotate == rotateWay.xRotate)
         {

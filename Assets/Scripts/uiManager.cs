@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UiManager : MonoBehaviour
 {
     //public static UiManager Instance;
+
+    [Header ("Game Objects")]
     public Text percentText;
     public GameObject Menu,rankText;
 
@@ -27,6 +29,8 @@ public class UiManager : MonoBehaviour
         }
     }
 
+
+    //Percentage UI Writer
     public void wallGameUi()
     {
         float percentCacher = percentageController.percent;

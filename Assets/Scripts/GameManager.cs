@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Game Objects")]
     public GameObject gameMenu,rankText;
 
 
@@ -37,4 +38,6 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    //button function end
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class rankingSystem : MonoBehaviour
 {
+    [Header ("Game Objects")]
     public Text rankText;
     public List<GameObject> rankList;
 
@@ -15,6 +16,7 @@ public class rankingSystem : MonoBehaviour
         writeUi(rankList);
     }
 
+    //Rank Write 
     public void writeUi(List<GameObject> arr)
     {
         rankText.text = "";
@@ -24,10 +26,7 @@ public class rankingSystem : MonoBehaviour
         }
     }
 
-    
-    
-
-
+//Buble Sort ile listeyi siralama
     public static void bubleSort(List<GameObject> arr)
     {
         GameObject temp;

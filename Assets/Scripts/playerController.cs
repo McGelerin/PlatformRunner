@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             {
                 //anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
                 anim.SetBool("move", true);
-                hareket();
+                Moment();
             }
             else //if(!swerveInputSC.isUserHoldScreen) //(Input.GetMouseButtonUp(0))
             {
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         
     //}
 
-    private void hareket()
+    private void Moment()
     {
         playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, movementSpeed);
         //anim.SetBool("move", true);
