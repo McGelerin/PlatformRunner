@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameMenu;
+    public GameObject gameMenu,rankText;
+
 
     private void Start()
     {
         Time.timeScale = 0f;
+
     }
 
     //Button Functions
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
         if (gameEnums.gameStatusCache == gameEnums.gameStatus.NONE)
         {
             gameMenu.SetActive(false);
+            rankText.SetActive(true);
             Time.timeScale = 1f;
             gameEnums.gameStatusCache = gameEnums.gameStatus.PLAYING;
         }

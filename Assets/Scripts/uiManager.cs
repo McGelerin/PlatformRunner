@@ -7,12 +7,16 @@ public class UiManager : MonoBehaviour
 {
     //public static UiManager Instance;
     public Text percentText;
-    public GameObject Menu;
+    public GameObject Menu,rankText;
 
     private void LateUpdate()
     {
         if (gameEnums.gameStatusCache == gameEnums.gameStatus.ENDGAME)
         {
+            if(rankText.activeInHierarchy == true)
+            {
+                rankText.SetActive(false);
+            }
             percentageController.percentCalculator();
             wallGameUi();
         }
