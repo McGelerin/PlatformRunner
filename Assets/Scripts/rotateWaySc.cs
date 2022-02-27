@@ -7,7 +7,7 @@ using DG.Tweening;
 public class rotateWaySc : MonoBehaviour
 {
     [Header("Rotate Way")]
-    public rotateWay rotateWay;
+    public rotateWay rotateWayCache;
     public float rotateSpeed;
 
     [Header("Variables")]
@@ -17,7 +17,7 @@ public class rotateWaySc : MonoBehaviour
     private void Awake()
     {
         platformRB = GetComponent<Rigidbody>();
-        rotateWay selectedRotate = rotateWay;
+        rotateWay selectedRotate = rotateWayCache;
 
         if (selectedRotate == rotateWay.xRotate)
         {

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class gameEnums : MonoBehaviour
 {
+    public static gameStatus gameStatusCache;
+
+    private void Start()
+    {
+        gameStatusCache = gameStatus.NONE;
+    }
+
     public enum gameStatus
     {
         NONE,

@@ -18,7 +18,10 @@ public class PlayerController : MonoBehaviour
     [Header("Player Variables")]
     public float movementSpeed;
     //public float rotatorKuvvet;
-    
+
+    [Header("Wall Game")]
+    public GameObject wallTarget;
+    private bool endGameCache;
 
     private void Awake()
     {
@@ -28,30 +31,37 @@ public class PlayerController : MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
-
+    private void Start()
+    {
+        endGameCache = false;
+    }
 
     private void Update()
     {
-
-        swerveInputSC.ChechTouches();
-
-        if (swerveInputSC.isUserHoldScreen)//(Input.GetMouseButton(0)) // mousebuttondown 1 kere calýþýr
+        if (!endGameCache)
         {
-            //anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
-            anim.SetBool("move", true);
-            hareket();
+            swerveMoveSC.SwerveMove();
+            swerveInputSC.ChechTouches();
+
+            if (swerveInputSC.isUserHoldScreen)//(Input.GetMouseButton(0)) // mousebuttondown 1 kere calýþýr
+            {
+                //anim.SetTrigger("move2"); //sürekli yeniden baþlýyor
+                anim.SetBool("move", true);
+                hareket();
+            }
+            else //if(!swerveInputSC.isUserHoldScreen) //(Input.GetMouseButtonUp(0))
+            {
+                anim.SetBool("move", false);
+                //anim.ResetTrigger("move2");
+            }
         }
-        else //if(!swerveInputSC.isUserHoldScreen) //(Input.GetMouseButtonUp(0))
-        {
-            anim.SetBool("move", false);
-            //anim.ResetTrigger("move2");
-        }        
+
     }
 
-    private void FixedUpdate()
-    {
-        swerveMoveSC.SwerveMove();
-    }
+    //private void FixedUpdate()
+    //{
+        
+    //}
 
     private void hareket()
     {
@@ -68,8 +78,16 @@ public class PlayerController : MonoBehaviour
         }
         if (col.gameObject.tag == "Finish")
         {
-            death();
+            EndGame();
         }
+    }
+
+    public void EndGame()
+    {
+        endGameCache = true;
+        transform.DOMove(wallTarget.transform.position, 2f);
+        anim.SetBool("move", false);
+        gameEnums.gameStatusCache = gameEnums.gameStatus.ENDGAME;
     }
 
 

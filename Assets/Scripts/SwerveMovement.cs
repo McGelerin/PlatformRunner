@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class SwerveMovement : MonoBehaviour
 {
-    private SwerveInputSystem _swerveInputSystem;
+    private SwerveInputSystem swerveInputSystem;
     [SerializeField] private float swerveSpeed = 0.5f;
     [SerializeField] private float maxSwerveAmount = 1f;
     [SerializeField] private Rigidbody playerfizik;
 
     private void Awake()
     {
-        _swerveInputSystem = GetComponent<SwerveInputSystem>();
+        swerveInputSystem = GetComponent<SwerveInputSystem>();
     }
 
     //private void FixedUpdate()
@@ -26,7 +26,7 @@ public class SwerveMovement : MonoBehaviour
 
     public void SwerveMove()
     {
-        float swerveAmount = Time.deltaTime * swerveSpeed * _swerveInputSystem.MoveFactorX;
+        float swerveAmount = Time.deltaTime * swerveSpeed * swerveInputSystem.MoveFactorX;
         swerveAmount = Mathf.Clamp(swerveAmount, -maxSwerveAmount, maxSwerveAmount);
         //transform.Translate(swerveAmount, 0, 0);
         playerfizik.velocity = new Vector3(swerveAmount, playerfizik.velocity.y, playerfizik.velocity.z);

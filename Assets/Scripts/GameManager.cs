@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public gameEnums gameStatus;
+    public GameObject gameMenu;
 
-    public void Play()
+    private void Start()
     {
-        
+        Time.timeScale = 0f;
     }
 
-    public void Quit()
+    //Button Functions
+    public void Play()
+    {
+        if (gameEnums.gameStatusCache == gameEnums.gameStatus.NONE)
+        {
+            gameMenu.SetActive(false);
+            Time.timeScale = 1f;
+            gameEnums.gameStatusCache = gameEnums.gameStatus.PLAYING;
+        }
+
+        else if (gameEnums.gameStatusCache == gameEnums.gameStatus.ENDGAME)
+        {
+            gameEnums.gameStatusCache = gameEnums.gameStatus.NONE;
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void  Quit()
     {
         Application.Quit();
     }
