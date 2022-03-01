@@ -21,10 +21,19 @@ public class aiController: MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    void Start()
+    {
+        //agent.destination = hedef.transform.position;
+        agent.SetDestination(hedef.transform.position);
+    }
 
     void Update()
     {
-        agent.SetDestination(hedef.transform.position);
+        //agent.SetDestination(hedef.transform.position);
+        //agent.Move(hedef.transform.position);
+        //agent.destination = hedef.transform.position;
+
+
         aiAnim();
 
     }
