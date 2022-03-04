@@ -11,6 +11,8 @@ public class UiManager : MonoBehaviour
     public Text percentText;
     public GameObject Menu,rankText;
 
+
+
     private void LateUpdate()
     {
         if (gameEnums.gameStatusCache == gameEnums.gameStatus.ENDGAME)
@@ -19,11 +21,10 @@ public class UiManager : MonoBehaviour
             {
                 rankText.SetActive(false);
             }
-            percentageController.percentCalculator();
             wallGameUi();
         }
 
-        if(percentageController.percent == 100)
+        if(objectDraw.percent == 100)
         {
             Menu.gameObject.SetActive(true);
         }
@@ -33,10 +34,10 @@ public class UiManager : MonoBehaviour
     //Percentage UI Writer
     public void wallGameUi()
     {
-        float percentCacher = percentageController.percent;
+        float percentCacher = objectDraw.percent;
         if (percentText.gameObject.activeInHierarchy == true)
         {
-              percentText.text = "%" + percentCacher.ToString();
+            percentText.text = "%" + (((int)percentCacher).ToString());
         }
         else
         {

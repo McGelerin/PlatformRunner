@@ -7,7 +7,7 @@ public class percentageController : MonoBehaviour
 {
     public static float paintedArea,percent,areaPiece;
 
-    public UiManager ui;
+    //public UiManager ui;
 
     private void Start()
     {

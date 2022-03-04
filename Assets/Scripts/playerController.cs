@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
                 //anim.ResetTrigger("move2");
             }
         }
-
     }
 
     //private void FixedUpdate()

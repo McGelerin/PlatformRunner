@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class SwerveInputSystem : MonoBehaviour
 {
-
-
     [Header("User Variables")]
     public bool isUserHoldScreen;
 
@@ -14,6 +12,7 @@ public class SwerveInputSystem : MonoBehaviour
     [Header("Scrips Variables")]
     private float lastFrameFingerPositionX;
     private float moveFactorX;
+
     public float MoveFactorX => moveFactorX;
     //private void Update()
     //{
