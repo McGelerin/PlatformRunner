@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7899288035172887207}
   - component: {fileID: 7899288035172887209}
   - component: {fileID: 7899288035172887206}
-  - component: {fileID: 7899288035172887208}
   - component: {fileID: 4242579031692978856}
   m_Layer: 0
   m_Name: HorizontalObstacle
@@ -143,25 +142,6 @@ CapsuleCollider:
   m_Height: 0.25618502
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &7899288035172887208
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7786555536964281615}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a167c2235afeb474da0a351de8f85cb0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!208 &4242579031692978856
 NavMeshObstacle:
   m_ObjectHideFlags: 0

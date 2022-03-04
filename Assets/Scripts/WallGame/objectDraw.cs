@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class objectDraw : MonoBehaviour
 {
+    [Header("Draw Object Values")]
     public MeshRenderer MeshRenderer;//Boyayacapýmýz Obje
     public Texture2D brush;// Fýrça Texture
+    [Tooltip("Texture Width and height values")]
     public Vector2Int textureArea;// x:1024 y:1024
     Texture2D texture;
 
 
-
+    [Header("Percent Calculate Values")]
     private float paintedArea, areaPiece;
     public static float percent;
 
@@ -54,7 +56,7 @@ public class objectDraw : MonoBehaviour
 
 
 
-    private void Paint(Vector2 coordinate)
+    private void Paint(Vector2 coordinate) //Paint new texture area
     {
         coordinate.x *= texture.width;
         coordinate.y *= texture.height;
@@ -86,7 +88,6 @@ public class objectDraw : MonoBehaviour
 
                     if (brushC32[x + (y * brush.width)].a > textureC32[tPos].a)
                     {
-                        //Debug.Log("kýrmýzý");
                         textureC32[tPos] = brushC32[x + (y * brush.width)];
                     }
                 }
@@ -97,7 +98,7 @@ public class objectDraw : MonoBehaviour
         texture.Apply();
     }
 
-    public void percentageController()
+    public void percentageController() //Percent Controller Scripts
     {
         paintedArea = 0;
         Color32[] textureC32 = texture.GetPixels32();
