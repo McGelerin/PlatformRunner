@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.05
+    agentRadius: 0.04
     agentHeight: 0.1
     agentSlope: 14
     agentClimb: 0.02
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.016666668
+    cellSize: 0.013333333
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3010178696258514964, guid: 7d16a56a6d832b043a2cf5fceb509842, type: 3}
       propertyPath: m_MoveThreshold
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4082595275149267685, guid: 7d16a56a6d832b043a2cf5fceb509842, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1208,7 +1208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880741458726168194, guid: 67112c740533c0f4d808b9f6c4c60c52, type: 3}
       propertyPath: m_MoveThreshold
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880741458726168194, guid: 67112c740533c0f4d808b9f6c4c60c52, type: 3}
+      propertyPath: m_CarveOnlyStationary
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67112c740533c0f4d808b9f6c4c60c52, type: 3}
@@ -1538,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7108912217828813595, guid: 18de7e2f7f4f5894882f4391387c69e6, type: 3}
       propertyPath: m_MoveThreshold
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7108912217828813595, guid: 18de7e2f7f4f5894882f4391387c69e6, type: 3}
       propertyPath: m_CarveOnlyStationary
@@ -3254,12 +3258,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
+      propertyPath: m_Shape
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
       propertyPath: m_MoveThreshold
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
       propertyPath: m_TimeToStationary
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
       propertyPath: m_CarveOnlyStationary
@@ -4512,7 +4520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880741458726168194, guid: 67112c740533c0f4d808b9f6c4c60c52, type: 3}
       propertyPath: m_MoveThreshold
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67112c740533c0f4d808b9f6c4c60c52, type: 3}
@@ -6693,12 +6701,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
+      propertyPath: m_Shape
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
       propertyPath: m_MoveThreshold
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
       propertyPath: m_TimeToStationary
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4242579031692978856, guid: b7e7627dec70b044ea3e6e0861a09dfc, type: 3}
       propertyPath: m_CarveOnlyStationary
